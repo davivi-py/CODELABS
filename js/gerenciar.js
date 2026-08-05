@@ -1,7 +1,7 @@
 // js/gerenciar.js
 import { supabase } from './supabase.js';
 
-//Protege a página: só quem estiver logado acessa 
+//Protege a página: verifica se há sessão ativa, só quem estiver logado acessa 
 const { data: { session } } = await supabase.auth.getSession();
 if (!session) {
   window.location.href = 'login.html?next=gerenciar.html';
@@ -14,7 +14,7 @@ const listaGerenciar = document.getElementById('lista-gerenciar');
 //botão de sair
 document.getElementById('btn-sair').addEventListener('click', async () => {
   await supabase.auth.signOut();
-  window.location.href = 'login.html';
+  window.location.href = 'login.html?next=gerenciar.html';
 });
 
 //busca todos os animais cadastrado

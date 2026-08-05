@@ -1,96 +1,122 @@
-/* ============================================
-   ONG CodeLab
-   Paleta:
-   #F5F5F5 - fundo claro
-   #AEE1CD - verde-menta
-   #4A4A4A - cinza escuro (texto)
-   #FFB077 - laranja 
-============================================ */
+/* ===========================================================
+   PALETA DE CORES DO PROJETO
+   #F5F5F5 → Fundo principal
+   #AEE1CD → Verde-menta (destaques)
+   #4A4A4A → Cor do texto
+   #FFB077 → Laranja (botões)
+=========================================================== */
 
+/* Remove margens e espaçamentos padrões do navegador
+   e facilita o cálculo do tamanho dos elementos */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html, body {
+/* Faz html e body ocuparem toda a altura da tela */
+html,
+body {
   height: 100%;
 }
 
+/* Configuração geral da página */
 body {
-  font-family: 'Segoe UI', Arial, sans-serif;
-  background-color: #F5F5F5;
-  color: #4A4A4A;
-  line-height: 1.5;
+  font-family: 'Segoe UI', Arial, sans-serif; /* Fonte principal */
+  background-color: #F5F5F5;                  /* Cor de fundo */
+  color: #4A4A4A;                            /* Cor padrão do texto */
+  line-height: 1.5;                          /* Espaçamento entre linhas */
+
+  /* Usa Flexbox para manter o rodapé no final da página */
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
+/* Faz o conteúdo principal ocupar o espaço disponível */
 main {
   flex: 1;
 }
 
+/* Remove sublinhado dos links e herda a cor do elemento pai */
 a {
   text-decoration: none;
   color: inherit;
 }
 
-/* ===== Cabeçalho / menu ===== */
+/* ===========================================================
+   CABEÇALHO
+=========================================================== */
+
+/* Organiza logo e menu na mesma linha */
 .topo {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   padding: 20px 40px;
   background-color: #F5F5F5;
 }
 
+/* Estilo do nome da ONG */
 .logo {
   font-size: 1.3rem;
   font-weight: bold;
   letter-spacing: 1px;
 }
 
+/* Parte destacada da logo */
 .logo .destaque {
   color: #FFB077;
 }
 
+/* Menu de navegação */
 .topo nav {
   display: flex;
   gap: 24px;
 }
 
+/* Links do menu */
 .topo nav a {
   font-weight: 600;
   padding: 6px 14px;
   border-radius: 20px;
-  transition: background-color 0.2s;
+  transition: background-color .2s;
 }
 
+/* Efeito ao passar o mouse */
 .topo nav a:hover {
   background-color: #F0F0F0;
 }
 
+/* Destaca a página atual */
 .topo nav a.ativo {
   background-color: #AEE1CD;
 }
 
-/* ===== Título principal ===== */
+/* ===========================================================
+   CONTEÚDO PRINCIPAL
+=========================================================== */
+
 main {
   width: 100%;
-  padding: 20px 40px 60px;
   max-width: 900px;
-  margin: 0 auto;
+  margin: 0 auto;      /* Centraliza */
+  padding: 20px 40px 60px;
   text-align: center;
 }
 
+/* Título principal */
 main h1 {
   font-size: 2rem;
   margin-bottom: 24px;
-  color: #4A4A4A;
 }
 
-/* ===== Barra de filtro / busca (adoção) ===== */
+/* ===========================================================
+   BARRA DE BUSCA E FILTRO
+=========================================================== */
+
+/* Organiza os botões e o campo de busca */
 .barra-acoes {
   display: flex;
   justify-content: center;
@@ -98,394 +124,340 @@ main h1 {
   margin-bottom: 20px;
 }
 
+/* Estilo geral dos botões e do input */
 .barra-acoes button,
 .barra-acoes input {
   padding: 10px 16px;
   border-radius: 20px;
   border: 1px solid #ddd;
-  font-size: 0.9rem;
 }
 
+/* Botão de abrir filtros */
 #btn-filtro {
   background-color: #FFB077;
-  color: #4A4A4A;
-  font-weight: 600;
   border: none;
+  font-weight: 600;
   cursor: pointer;
-  transition: opacity 0.2s;
 }
 
 #btn-filtro:hover {
-  opacity: 0.85;
+  opacity: .85;
 }
 
+/* Campo de pesquisa */
 #busca {
   flex: 1;
   max-width: 300px;
-  background-color: #fff;
+  background-color: white;
 }
 
-/* ===== Painel de filtro ===== */
+/* ===========================================================
+   PAINEL DE FILTROS
+=========================================================== */
+
+/* Caixa onde ficam os filtros */
 .painel-filtro {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
-  align-items: flex-end;
-  background-color: #fff;
-  border: 1px solid #eee;
+
+  background: white;
   border-radius: 12px;
   padding: 16px 20px;
   margin-bottom: 24px;
 }
 
+/* Organiza cada label com seu select */
 .painel-filtro label {
   display: flex;
   flex-direction: column;
-  font-size: 0.85rem;
-  font-weight: 600;
   gap: 4px;
+  font-weight: 600;
 }
 
+/* Campos select */
 .painel-filtro select {
   padding: 8px 10px;
   border-radius: 8px;
-  border: 1px solid #ddd;
 }
 
+/* Botão aplicar filtros */
 #btn-aplicar-filtro {
   background-color: #AEE1CD;
   border: none;
   border-radius: 20px;
   padding: 10px 20px;
-  font-weight: 600;
   cursor: pointer;
-  transition: opacity 0.2s;
 }
 
-#btn-aplicar-filtro:hover {
-  opacity: 0.85;
-}
-
+/* Classe usada pelo JavaScript para esconder elementos */
 .escondido {
   display: none;
 }
 
-/* ===== Grade de cards de animais ===== */
+/* ===========================================================
+   LISTA DE ANIMAIS
+=========================================================== */
+
+/* Grade responsiva dos cards */
 .grade-animais {
   display: grid;
+
+  /* Cria automaticamente colunas conforme o espaço disponível */
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+
   gap: 24px;
-  text-align: left;
 }
 
+/* Card de cada animal */
 .card-animal {
-  background-color: #fff;
+  background: white;
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+
+  box-shadow: 0 2px 8px rgba(0,0,0,.06);
+
   text-align: center;
   padding-bottom: 16px;
-  transition: transform 0.2s;
+
+  transition: transform .2s;
 }
 
+/* Levanta o card ao passar o mouse */
 .card-animal:hover {
   transform: translateY(-4px);
 }
 
+/* Foto do animal */
 .card-animal img {
   width: 100%;
   height: 180px;
+
   object-fit: cover;
-  background-color: #AEE1CD;
 }
 
+/* Nome do animal */
 .card-animal h3 {
   margin: 12px 0 10px;
-  font-size: 1.1rem;
 }
 
+/* Botões do card */
 .card-animal button,
 .btn-detalhes {
   background-color: #FFB077;
   border: none;
   border-radius: 20px;
   padding: 8px 18px;
-  font-weight: 600;
-  color: #4A4A4A;
   cursor: pointer;
-  transition: opacity 0.2s;
 }
 
-.card-animal button:hover,
-.btn-detalhes:hover {
-  opacity: 0.85;
-}
-
+/* Mensagens de carregamento ou lista vazia */
 .carregando,
 .vazio {
   color: #999;
   font-style: italic;
-  padding: 20px 0;
 }
 
-/* ===== Formulários (contato e cadastro) ===== */
+/* ===========================================================
+   FORMULÁRIOS
+=========================================================== */
+
+/* Formulário de contato e cadastro */
 .form-contato,
 .form-cadastro {
   display: flex;
   flex-direction: column;
   gap: 6px;
+
   max-width: 420px;
-  margin: 0 auto;
-  text-align: left;
-  background-color: #fff;
+  margin: auto;
+
+  background: white;
   padding: 30px;
+
   border-radius: 16px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
+/* Labels */
 .form-contato label,
 .form-cadastro label {
-  font-weight: 600;
+  font-weight: bold;
   margin-top: 10px;
-  font-size: 0.9rem;
 }
 
+/* Inputs, textarea e select */
 .form-contato input,
 .form-contato textarea,
 .form-cadastro input,
 .form-cadastro select {
-  padding: 10px 12px;
-  border: 1px solid #ddd;
+  padding: 10px;
   border-radius: 8px;
-  font-size: 0.95rem;
-  font-family: inherit;
 }
 
-.form-contato textarea {
-  resize: vertical;
-}
-
+/* Botão do formulário */
 .form-contato button,
 .form-cadastro button {
   margin-top: 24px;
+
   background-color: #FFB077;
   border: none;
   border-radius: 20px;
+
   padding: 12px;
-  font-weight: 700;
-  font-size: 1rem;
-  color: #4A4A4A;
   cursor: pointer;
-  transition: opacity 0.2s;
 }
 
-.form-contato button:hover,
-.form-cadastro button:hover {
-  opacity: 0.85;
-}
-
-.form-contato button:disabled,
-.form-cadastro button:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
+/* Imagem de pré-visualização */
 .preview-foto {
   margin-top: 12px;
-  max-width: 100%;
   max-height: 200px;
-  object-fit: cover;
-  border-radius: 8px;
 }
 
-.msg-status {
-  margin-top: 16px;
-  font-weight: 600;
-}
-
+/* Mensagens de sucesso */
 .msg-status.sucesso {
   color: #2e7d52;
 }
 
+/* Mensagens de erro */
 .msg-status.erro {
   color: #c0392b;
 }
 
-/* ===== Rodapé ===== */
+/* ===========================================================
+   RODAPÉ
+=========================================================== */
+
+/* Área do rodapé */
 .rodape {
   background-color: #AEE1CD;
-  margin-top: 60px;
   padding: 20px 40px;
+  margin-top: 60px;
 }
 
+/* Organiza endereço e redes sociais */
 .rodape-conteudo {
-  max-width: 1000px;
-  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 12px;
 }
 
-.rodape-endereco {
-  font-size: 0.85rem;
-  color: #4A4A4A;
-}
-
+/* Ícones das redes sociais */
 .rodape-redes {
   display: flex;
   gap: 14px;
 }
 
-.rodape-redes a {
-  color: #4A4A4A;
-  display: flex;
-  align-items: center;
-  transition: opacity 0.2s, transform 0.2s;
-}
-
+/* Pequena animação ao passar o mouse */
 .rodape-redes a:hover {
-  opacity: 0.7;
   transform: translateY(-2px);
 }
 
-/* ===== Home ===== */
+/* ===========================================================
+   HOME 
+=========================================================== */
+
+/* Seção principal da página inicial */
 .hero {
-  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+
   padding: 40px 20px 100px;
 }
 
+/* Imagem principal */
 .hero-imagem {
   max-width: 320px;
-  width: 100%;
   border-radius: 20px;
-  margin-bottom: 24px;
 }
 
+/* Imagem substituta caso a principal não carregue */
 .placeholder-imagem {
-  display: none; /* fica escondido até a imagem de cima dar erro de carregamento */
-  width: 320px;
-  max-width: 100%;
-  height: 220px;
-  background-color: #AEE1CD;
-  border-radius: 20px;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 20px;
-  color: #4A4A4A;
-  font-weight: 600;
-  margin-bottom: 24px;
+  display: none;
 }
 
+/* Título da home */
 .hero-titulo {
   font-size: 2rem;
-  color: #4A4A4A;
   margin-bottom: 24px;
-  line-height: 1.3;
 }
 
+/* Botão principal */
 .btn-cta {
   background-color: #FFB077;
-  color: #4A4A4A;
-  font-weight: 700;
   padding: 14px 28px;
   border-radius: 30px;
-  display: inline-block;
-  transition: opacity 0.2s;
 }
 
-.btn-cta:hover {
-  opacity: 0.85;
-}
+/* ===========================================================
+   DETALHES DO ANIMAL
+=========================================================== */
 
-.silhuetas {
-  margin-top: 40px;
-  max-width: 500px;
-  width: 100%;
-}
-
-/* ===== detalhes do animal ===== */
-.link-voltar {
-  display: block;
-  width: fit-content;
-  margin: 0 0 20px 0;
-  font-weight: 600;
-  color: #4A4A4A;
-}
-
+/* Link para voltar */
 .link-voltar:hover {
   text-decoration: underline;
 }
 
+/* Card com as informações do animal */
 .detalhe-card {
   display: flex;
   gap: 32px;
-  background-color: #fff;
-  border-radius: 16px;
+
+  background: white;
   padding: 24px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-  max-width: 700px;
-  margin: 0 auto;
-  text-align: left;
+  border-radius: 16px;
+
   flex-wrap: wrap;
 }
 
+/* Foto do animal */
 .detalhe-foto {
   width: 280px;
-  max-width: 100%;
   height: 280px;
   object-fit: cover;
-  border-radius: 12px;
-  background-color: #AEE1CD;
 }
 
+/* Área das informações */
 .detalhe-info {
   flex: 1;
-  min-width: 220px;
 }
 
-.detalhe-info h1 {
-  margin-bottom: 16px;
-}
-
+/* Lista de características */
 .detalhe-lista {
   list-style: none;
-  margin-bottom: 24px;
 }
 
-.detalhe-lista li {
-  padding: 6px 0;
-  border-bottom: 1px solid #f0f0f0;
-}
-
+/* Descrição do animal */
 .detalhe-descricao {
-  margin-bottom: 24px;
   line-height: 1.6;
-  color: #4A4A4A;
 }
 
-/* ===== Responsivo básico ===== */
+/* ===========================================================
+   RESPONSIVIDADE
+=========================================================== */
+
+/* Ajustes para celulares */
 @media (max-width: 600px) {
+
+  /* Cabeçalho fica em coluna */
   .topo {
     flex-direction: column;
-    gap: 12px;
     text-align: center;
   }
 
+  /* Diminui as margens do conteúdo */
   main {
     padding: 20px;
   }
 
+  /* Barra de busca passa para coluna */
   .barra-acoes {
     flex-direction: column;
   }
 
+  /* Campo de busca ocupa toda a largura */
   #busca {
     max-width: 100%;
   }
