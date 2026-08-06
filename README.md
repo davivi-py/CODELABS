@@ -11,6 +11,6 @@ Página de detalhes de cada animal
 Stack
 Front-end: HTML, CSS, JavaScript
 Back-end: Supabase (autenticação, banco de dados e armazenamento de imagens)
-Equipe
+
 
 Projeto desenvolvido por Clara, Davi e Mare como parte do processo de admissão no CodeLabs — USP São Carlos.
